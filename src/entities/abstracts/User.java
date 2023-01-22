@@ -45,6 +45,6 @@ public abstract class User {
         return "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", id=" + id +
-                ", age=" + age;
+                ", age=" + age ;
     }
 }

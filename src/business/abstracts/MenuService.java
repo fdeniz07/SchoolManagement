@@ -9,7 +9,7 @@ public abstract class MenuService {
 
     protected String personType = "";
 
-
+    Scanner scanner = new Scanner(System.in);
 
     public abstract void add();
 
