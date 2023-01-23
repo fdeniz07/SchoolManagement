@@ -1,9 +1,14 @@
 package application.console;
 
+import application.console.student.StudentMenuService;
+
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Runner {
+
+
+
 
     public static void main(String[] args) {
 
@@ -12,12 +17,14 @@ public class Runner {
 
     public static void start() {
 
+        StudentMenuService stdMenuService = new StudentMenuService();
+
         Scanner scanner = new Scanner(System.in);
 
         int select;
 
         do {
-            String message = "===== OKul Yönetim Uygulamamiza Hos Geldiniz =====";
+            String message = "===== Okul Yönetim Uygulamamiza Hos Geldiniz =====";
             slowPrint(message, 30);
             System.out.println("==================================================================");
             System.out.println("ÖGRENCI VE ÖGRETMEN YÖNETIM PANELI");
@@ -31,7 +38,7 @@ public class Runner {
             switch (select) {
 
                 case 1:
-                    //Ögrenci islemleri
+                    stdMenuService.getSelectionMenu();
                     break;
                 case 2:
                     //Ögrenci islemleri

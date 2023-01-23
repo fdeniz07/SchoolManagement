@@ -4,7 +4,7 @@ public abstract class User {
 
     private String firstName;
     private String lastName;
-    private int id;
+    private String id;
     private int age;
 
 
@@ -16,7 +16,7 @@ public abstract class User {
         return lastName;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -32,7 +32,7 @@ public abstract class User {
         this.lastName = lastName;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

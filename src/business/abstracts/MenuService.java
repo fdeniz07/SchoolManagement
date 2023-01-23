@@ -1,8 +1,5 @@
 package business.abstracts;
 
-import entities.abstracts.User;
-
-import java.util.List;
 import java.util.Scanner;
 
 public abstract class MenuService {
@@ -21,6 +18,8 @@ public abstract class MenuService {
 
     public void getSelectionMenu(){
 
+        Scanner scan = new Scanner(System.in);
+
         int select=-1;
 
 
@@ -34,6 +33,9 @@ public abstract class MenuService {
             System.out.println("4-SILME");
             System.out.println("5-ANA MENU");
             System.out.println("0-CIKIS");
+
+            System.out.println("\nSeçiminiz: ");
+            select = scan.nextInt();
 
             switch (select) {
 
