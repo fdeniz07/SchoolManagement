@@ -1,5 +1,7 @@
 package business.abstracts;
 
+import core.helpers.SlowPrint;
+
 import java.util.Scanner;
 
 public abstract class MenuService {
@@ -14,13 +16,13 @@ public abstract class MenuService {
 
     public abstract void list();
 
-    public abstract void delete ();
+    public abstract void delete();
 
-    public void getSelectionMenu(){
+    public void getSelectionMenu() {
 
         Scanner scan = new Scanner(System.in);
 
-        int select=-1;
+        int select = -1;
 
 
         do {
@@ -52,15 +54,17 @@ public abstract class MenuService {
                     this.delete();
                     break;
                 case 5:
-                    select=0;
+                    select = 0;
                     break;
                 case 0:
-                    break;
+                    String message = "===== Okul Yönetim Uygulamamizdan Ayriliyorsunuz =====";
+                    SlowPrint.slowPrint(message,30);
+                    System.exit(0);
                 default:
                     System.out.println("Hatali Giris Yaptiniz...!");
             }
-
         } while (select != 0);
+
 
         System.out.println("Iyi günler, tekrar bekleriz...");
     }

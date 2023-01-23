@@ -1,35 +1,44 @@
 package application.console.student;
 
+import business.abstracts.IdMaker;
 import business.abstracts.MenuService;
+import core.validations.IsValidAgeValidator;
+import core.validations.IsValidIdValidator;
+import core.validations.IsValidNameValidator;
 import entities.concretes.Students;
 import java.util.Scanner;
 
-public class StudentMenuService extends MenuService {
+public class StudentMenuService extends MenuService implements IdMaker {
 
     Students std = new Students();
     Scanner scanner = new Scanner(System.in);
 
     public static int counter = 100;
 
+    //Validation
+    IsValidIdValidator isValidTC = new IsValidIdValidator();
+    IsValidNameValidator isValidName = new IsValidNameValidator();
+    IsValidAgeValidator isValidAge = new IsValidAgeValidator();
+
 
     @Override
     public void add() {
         System.out.println("Lütfen adinizi giriniz: ");
-        std.setFirstName(scanner.nextLine());
+        std.setFirstName(isValidName.isValidFirstName());
 
         System.out.println("Lütfen soyadinizi giriniz: ");
-        std.setLastName(scanner.nextLine());
+        std.setLastName(isValidName.isValidLastName());
 
         System.out.println("Lütfen kimlik numaranizi giriniz: ");
-        std.setId(scanner.next());
+        std.setId(isValidTC.isValid());
 
         System.out.println("Lütfen yasinizi giriniz: ");
-        std.setAge(scanner.nextInt());
+        std.setAge(isValidAge.isAValidAge());
 
         System.out.println("Lütfen sinifinizi giriniz: ");
         std.setGrade(scanner.next());
 
-        std.setNumber(studentIdMaker());
+        std.setNumber(idMaker(std.getId()));
 
         std.fillStudentList();
         counter++;
@@ -98,19 +107,13 @@ public class StudentMenuService extends MenuService {
         }
     }
 
+    @Override
+    public String idMaker( String number) {
 
-    private String studentIdMaker(){
+         String suffix = "Std";
 
-        //Id = Kimlik No
-        //OgrenciNo = suffix + kimlikNo(son 3 hane) + counter
+        number = number.substring(number.length()-3);
 
-        String suffix = "Std";
-
-        String last3 = std.getId();
-        last3 = last3.substring(last3.length()-3);
-
-        return suffix + last3  +  counter ;
-
+        return suffix + number  +  counter ;
     }
-
 }
