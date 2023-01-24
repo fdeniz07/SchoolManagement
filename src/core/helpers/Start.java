@@ -19,6 +19,7 @@ public class Start {
         do {
             String message = "===== Okul Yönetim Uygulamamiza Hos Geldiniz =====";
             SlowPrint.slowPrint(message,30);
+            System.out.println();
             System.out.println("==================================================================");
             System.out.println("ÖGRENCI VE ÖGRETMEN YÖNETIM PANELI");
             System.out.println("==================================================================");
@@ -45,5 +46,6 @@ public class Start {
         } while (select != 0);
 
         System.out.println("Iyi günler, tekrar bekleriz...");
+        System.out.println();
     }
 }

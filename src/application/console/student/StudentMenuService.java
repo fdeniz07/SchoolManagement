@@ -45,7 +45,7 @@ public class StudentMenuService extends MenuService implements IdMaker {
         System.out.println("Öğrenci başarıyla eklenmiştir...");
         list();
         scanner.nextLine();//dummy
-
+        System.out.println();
     }
 
     @Override
@@ -110,7 +110,7 @@ public class StudentMenuService extends MenuService implements IdMaker {
     @Override
     public String idMaker( String number) {
 
-         String suffix = "Std";
+         String suffix = "STD";
 
         number = number.substring(number.length()-3);
 

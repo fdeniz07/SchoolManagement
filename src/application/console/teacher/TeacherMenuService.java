@@ -40,14 +40,14 @@ public class TeacherMenuService extends MenuService implements IdMaker {
         System.out.println("Lütfen departmaninizi giriniz: ");
         tch.setDepartment(scanner.next());
 
-        tch.setId(idMaker(tch.getId()));
+        tch.setRegistrationNumber(idMaker(tch.getId()));
 
         tch.fillTeacherList();
         counter++;
         System.out.println("Ögretmen başarıyla eklenmiştir...");
         list();
         scanner.nextLine();//dummy
-
+        System.out.println();
     }
 
     @Override
@@ -59,9 +59,9 @@ public class TeacherMenuService extends MenuService implements IdMaker {
         for (Teachers w: tch.teachersList){
 
             if (w.getId().equals(id)){
-                System.out.printf("%-15s  %-15s  %-3s  %-5s  %-15s  %-10s \n","Name","Surname","Age","Department","ID","Registration No");
-                System.out.printf("%-15s  %-15s  %-3s  %-5s  %-15s  %-10s \n","----------","-----------","---","-----","-----------","----------");
-                System.out.printf("%-15s  %-15s  %-3s  %-5s  %-15s  %-10s \n",w.getFirstName(),w.getLastName(),w.getAge(),w.getDepartment(),w.getId(),w.getRegistrationNumber());
+                System.out.printf("%-15s  %-15s  %-3s  %-15s  %-15s  %-15s \n","Name","Surname","Age","Department","ID","Registration No");
+                System.out.printf("%-15s  %-15s  %-3s  %-15s  %-15s  %-15s \n","----------","-----------","---","--------------","-----------","-------------------");
+                System.out.printf("%-15s  %-15s  %-3s  %-15s  %-15s  %-15s \n",w.getFirstName(),w.getLastName(),w.getAge(),w.getDepartment(),w.getId(),w.getRegistrationNumber());
                 flag++;
                 break;
             }
@@ -78,17 +78,17 @@ public class TeacherMenuService extends MenuService implements IdMaker {
 
     @Override
     public void list() {
-        System.out.printf("%-15s  %-15s  %-3s  %-5s  %-15s  %-10s \n","Name","Surname","Age","Department","ID","Registration No");
-        System.out.printf("%-15s  %-15s  %-3s  %-5s  %-15s  %-10s \n","----------","-----------","---","-----","-----------","----------");
+        System.out.printf("%-15s  %-15s  %-3s  %-15s  %-15s  %-15s \n","Name","Surname","Age","Department","ID","Registration No");
+        System.out.printf("%-15s  %-15s  %-3s  %-15s  %-15s  %-15s \n","----------","-----------","---","--------------","-----------","-------------------");
 
         for (Teachers w: tch.teachersList){
-            System.out.printf("%-15s  %-15s  %-3s  %-5s  %-15s  %-10s \n",w.getFirstName(),w.getLastName(),w.getAge(),w.getDepartment(),w.getId(),w.getRegistrationNumber());
+            System.out.printf("%-15s  %-15s  %-3s  %-15s  %-15s  %-15s \n",w.getFirstName(),w.getLastName(),w.getAge(),w.getDepartment(),w.getId(),w.getRegistrationNumber());
         }
     }
 
     @Override
     public void delete() {
-        System.out.println("Silmek istediginiz ögretmenin sicil numarasini giriniz: ");
+        System.out.println("Silmek istediginiz ögretmenin kimlik numarasini giriniz: ");
         String deletedId = scanner.next();
         int flag = 0;
 
@@ -112,7 +112,7 @@ public class TeacherMenuService extends MenuService implements IdMaker {
     @Override
     public String idMaker( String number) {
 
-        String suffix = "Std";
+        String suffix = "TCH";
 
         number = number.substring(number.length()-3);
 

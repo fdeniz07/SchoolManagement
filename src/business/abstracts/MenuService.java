@@ -67,6 +67,7 @@ public abstract class MenuService {
 
 
         System.out.println("Iyi günler, tekrar bekleriz...");
+        System.out.println();
     }
 
 
